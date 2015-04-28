@@ -1,7 +1,7 @@
 dynamodb-atomic-counter
 =======================
 
-This library provides an atomic counter using Amazon DynamoDB. Each increment request
+This library provides atomic counters using Amazon DynamoDB. Each increment request
 increments a counter value that is stored in a DynamoDB table (named "AtomicCounters" by default).
 Multiple increment requests can be sent simultaniuosly but each request will receive a
 unique value, therefore this library can be use to generate auto-increment ids.
