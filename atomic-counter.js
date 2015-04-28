@@ -1,5 +1,5 @@
 /**
- * dynamodb-atomic-counter 0.0.1 - (c) 2015 Sergio Alcantara
+ * dynamodb-atomic-counter - (c) 2015 Sergio Alcantara
  * Generates unique identifiers using DynamoDB atomic counter update operations.
  * 
  * @author Sergio Alcantara
