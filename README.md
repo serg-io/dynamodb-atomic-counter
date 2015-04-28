@@ -3,7 +3,7 @@ dynamodb-atomic-counter
 
 This library provides atomic counters using Amazon DynamoDB. Each increment request
 increments a counter value that is stored in a DynamoDB table (named "AtomicCounters" by default).
-Multiple increment requests can be sent simultaniuosly but each request will receive a
+Multiple increment requests can be sent simultaneously but each request will receive a
 unique value, therefore this library can be use to generate auto-increment ids.
 
 Installation
@@ -54,7 +54,9 @@ The following few lines of code demonstrate basic usage of this library. Additio
 	atomicCounter.config.update({ region: 'us-east-1' });
 
 	/**
-	 * Increment the "Users" counter. Make sure there's a table named "AtomicCounters", with "id" (string) as the primary hash key, in your AWS account.
+	 * Increment the "Users" counter. Make sure there's a table named
+	 * "AtomicCounters", with "id" (string) as the primary hash key,
+	 * in your AWS account.
 	 */
 	atomicCounter.increment( 'Users' ).done(function (value) {
 		// `value` is the new incremented value.
