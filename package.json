@@ -2,7 +2,7 @@
 	"name": "dynamodb-atomic-counter",
 	"author": "Sergio Alcantara <iserg9@gmail.com> (https://github.com/serg-io)",
 	"description": "This library provides atomic counters using Amazon DynamoDB.",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"homepage": "https://github.com/serg-io/dynamodb-atomic-counter",
 	"keywords": [ "atomic-counter", "atomic", "counter", "dynamodb", "aws", "amazon" ],
 	"repository": {

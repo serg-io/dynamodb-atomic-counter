@@ -121,3 +121,24 @@ exports[ 'Concurrent increments/requests' ] = function (test) {
 		test.done();
 	});
 };
+
+/**
+ * This function demonstrates how to use the getLastValue method.
+ */
+exports[ 'Get last value generated for a counter using ConsistentRead' ] = function (test) {
+	var options = {
+		dynamodb: {
+			ConsistentRead: true
+		}
+	};
+	test.expect( 2 );
+
+	atomicCounter.getLastValue( 'Users', options ).done(function (lastValue) {
+		test.ok( true ); // success was executed
+	}).fail(function (error) {
+		test.ok( false, 'Failed to retrieve the last value used: ' + JSON.stringify( error ) );
+	}).always(function (valueOrError) {
+		test.ok( true ); // complete was executed
+		test.done();
+	});
+};
