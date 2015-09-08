@@ -10,6 +10,9 @@
 		"url": "git://github.com/serg-io/dynamodb-atomic-counter.git"
 	},
 	"main": "atomic-counter.js",
+	"scripts": {
+		"postversion": "git push && git push --tags && npm publish"
+	},
 	"dependencies": {
 		"aws-sdk": "2.1.26",
 		"underscore": "1.8.3",

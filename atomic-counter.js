@@ -23,8 +23,8 @@ var DEFAULT_TABLE_NAME = 'AtomicCounters',
 	 */
 	DEFAULT_INCREMENT = 1;
 
-var AWS = require( 'aws-sdk' ),
-	dynamo = new AWS.DynamoDB(),
+var dynamo,
+	AWS = require( 'aws-sdk' ),
 	_ = require( 'underscore' );
 
 _.mixin( require('underscore.deferred') );
@@ -38,7 +38,7 @@ var noop = function(){};
 /**
  * Make the `AWS.DynamoDB.config` method available.
  */
-exports.config = dynamo.config;
+exports.config = AWS.config;
 
 /**
  * Increments the counter for the specified `counterId`.
@@ -92,6 +92,8 @@ exports.increment = function ( counterId, options ) {
 		}
 	};
 	_.extend( params, options.dynamodb );
+
+	dynamo || ( dynamo = new AWS.DynamoDB() );
 
 	request = dynamo.updateItem(params, function (error, data) {
 		var newCountValue;
@@ -174,6 +176,8 @@ exports.getLastValue = function ( counterId, options ) {
 
 	params.Key[ keyAttribute ] = { S: counterId };
 	_.extend( params, options.dynamodb );
+
+	dynamo || ( dynamo = new AWS.DynamoDB() );
 
 	request = dynamo.getItem(params, function (errorObject, data) {
 		var error, lastValue;
