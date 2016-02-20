@@ -1,7 +1,7 @@
 /**
  * dynamodb-atomic-counter - (c) 2015 Sergio Alcantara
  * Generates unique identifiers using DynamoDB atomic counter update operations.
- * 
+ *
  * @author Sergio Alcantara
  */
 
@@ -74,7 +74,7 @@ exports.increment = function ( counterId, options ) {
 		deferred = new _.Deferred(),
 		params = {
 			Key: {},
-			AttributeUpdates: {},
+			AttributeUpdates: options.otherUpdates || {},
 			ReturnValues: 'UPDATED_NEW',
 			TableName: options.tableName || DEFAULT_TABLE_NAME
 		},

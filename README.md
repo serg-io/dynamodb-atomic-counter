@@ -43,6 +43,7 @@ The `increment` method takes the following arguments:
 	* `options.error`: Error callback function. If the DynamoDB UpdateItem request fails, the error callback is executed. It receives a single argument: the error object returned from AWS-SDK.
 	* `options.complete`: Complete callback function. This callback is executed when the increment operation is completed, whether or not it was successful. It receives a single argument: an integer, if the operation was successful, or an error object if it failed.
 	* `options.context`: The context object to use in all callbacks. If specified, the value of `this` within all callbacks will be `options.context`.
+	* `options.otherUpdates`: Any other field to update, during the same operation as the increment. Operations should be formatted using the DynamoDB JSON syntaxotherUpdates : (ex : ` 'field':{Value:{'S':value} `).
 
 `getLastValue( counterId, options )`
 ------------------------------------
