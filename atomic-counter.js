@@ -1,7 +1,7 @@
 /**
  * dynamodb-atomic-counter - (c) 2015 Sergio Alcantara
  * Generates unique identifiers using DynamoDB atomic counter update operations.
- * 
+ *
  * @author Sergio Alcantara
  */
 
@@ -205,9 +205,9 @@ exports.getLastValue = function ( counterId, options ) {
 
 		if ( error ) {
 			if ( options.context ) {
-				deferred.rejectWith( options.context, [ e ] );
+				deferred.rejectWith( options.context, [ error ] );
 			} else {
-				deferred.reject( e );
+				deferred.reject( error );
 			}
 		} else {
 			if ( options.context ) {
